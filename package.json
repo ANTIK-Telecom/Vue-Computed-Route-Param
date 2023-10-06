@@ -1,0 +1,36 @@
+{
+  "name": "@antik-web/computed-route-param",
+  "version": "1.0.7",
+  "description": "A facade for using computed property to set primitive route param values.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.antik.sk/Web/dev/frontend/computed-route-param.git"
+  },
+  "keywords": [
+    "util",
+    "computed",
+    "reactive",
+    "router",
+    "parameters",
+    "param"
+  ],
+  "author": "Jakub Frankovic",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "~5.2.2",
+    "vue": "~3.3.4",
+    "vue-router": "~4.2.5"
+  },
+  "files": [
+    "dist/index.d.ts",
+    "dist/index.js",
+    "README.md",
+    "package.json"
+  ]
+}
