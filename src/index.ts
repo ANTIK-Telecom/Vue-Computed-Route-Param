@@ -16,3 +16,19 @@ export const makeComputedQuery = (router: Router, route: RouteLocationNormalized
     },
   });
 };
+
+export const makeComputedQueryArray = (router: Router, route: RouteLocationNormalizedLoaded, key: string): WritableComputedRef<Array<string|number>> => {
+  return computed({
+    get(): Array<string> {
+      const paramData = Object.hasOwn(route.query, key) ? route.query[key] as string : undefined;
+      return paramData ? paramData.split(',') : []
+    },
+    set(newValue: Array<number|string>): void {
+      const routeQuery = {} as Record<any, any>;
+      if (newValue) {
+        routeQuery[key] = newValue.toString();
+      }
+      router.push({ path: route.path, query: routeQuery });
+    },
+  });
+};

@@ -15,7 +15,7 @@ pnpm add @antik-web/computed-route-param
 
 **ESM import**:
 ```
-import { makeComputedQuery } from '@antik-web/computed-route-param';
+import { makeComputedQuery, makeComputedQueryArray } from '@antik-web/computed-route-param';
 ```
 
 ## Example code / Usage
@@ -80,9 +80,25 @@ paramText.value = 'valueOfParam'
 </script>
 ```
 
+### Example 4 - Work with arrays
+
+```html
+<script setup lang="ts">
+import { useRoute, useRouter } from 'vue-router';
+import { makeComputedQueryArray } from '@antik-web/computed-route-param';
+
+const route = useRoute();
+const router = useRouter();
+const paramText = makeComputedQueryArray(router, route, 'paramName');
+
+paramText.value = [1,2,3,4]
+paramText.value = ['1','2','3','4']
+
+</script>
+```
+
 ## Support
-- ES2022
-- CommonJS
+- ES2022 - ESM
 
 ## Authors and acknowledgment
 Jakub Frankovic - Web developer ANTIK Telecom | [Send Mail](mailto:frankovic@antik.sk)
