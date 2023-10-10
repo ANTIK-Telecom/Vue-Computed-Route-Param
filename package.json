@@ -1,6 +1,6 @@
 {
   "name": "@antik-web/computed-route-param",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "A facade for using computed property to set primitive route param values.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

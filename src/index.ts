@@ -8,23 +8,38 @@ export const makeComputedQuery = (router: Router, route: RouteLocationNormalized
       return Object.hasOwn(route.query, key) ? route.query[key] as string ?? '' : '';
     },
     set(newValue: string): void {
-      const routeQuery = {} as Record<any, any>;
+      const routeQuery = {
+        ...route.query,
+      } as Record<any, any>;
+      if (newValue === routeQuery[key]) {
+        return;
+      }
+  
+      delete routeQuery[key];
       if (newValue) {
         routeQuery[key] = newValue;
       }
-      router.push({ path: route.path, query: routeQuery });
-    },
+  
+      router.replace({ path: route.path, query: routeQuery });
+    }
   });
 };
 
-export const makeComputedQueryArray = (router: Router, route: RouteLocationNormalizedLoaded, key: string): WritableComputedRef<Array<string|number>> => {
+export const makeComputedQueryArray = <ReturnArrayType = string>(router: Router, route: RouteLocationNormalizedLoaded, key: string, isNumberArr = false): WritableComputedRef<ReturnArrayType[]> => {
   return computed({
-    get(): Array<string> {
+    get(): Array<ReturnArrayType> {
       const paramData = Object.hasOwn(route.query, key) ? route.query[key] as string : undefined;
-      return paramData ? paramData.split(',') : []
+      return paramData ? isNumberArr ? paramData.split(',').map(n => parseInt(n)) as ReturnArrayType[] : paramData.split(',') as ReturnArrayType[] : []
     },
-    set(newValue: Array<number|string>): void {
-      const routeQuery = {} as Record<any, any>;
+    set(newValue: Array<ReturnArrayType>): void {
+      const routeQuery = {
+        ...route.query,
+      } as Record<any, any>;
+      if (newValue.toString() === routeQuery[key]) {
+        return;
+      }
+  
+      delete routeQuery[key];
       if (newValue) {
         routeQuery[key] = newValue.toString();
       }
