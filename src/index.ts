@@ -40,7 +40,7 @@ export const makeComputedQueryArray = <ReturnArrayType extends string | number =
       }
   
       delete routeQuery[key];
-      if (newValue) {
+      if (newValue.length) {
         routeQuery[key] = newValue.toString();
       }
       router.push({ path: route.path, query: routeQuery });
