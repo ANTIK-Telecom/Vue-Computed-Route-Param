@@ -1,16 +1,12 @@
 {
   "name": "@antik-web/computed-route-param",
-  "version": "1.1.4",
+  "version": "1.1.7",
   "description": "A facade for using computed property to set primitive route param values.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://git.antik.sk/Web/dev/frontend/computed-route-param.git"
   },
   "keywords": [
     "util",

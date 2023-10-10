@@ -25,7 +25,7 @@ export const makeComputedQuery = (router: Router, route: RouteLocationNormalized
   });
 };
 
-export const makeComputedQueryArray = <ReturnArrayType = string>(router: Router, route: RouteLocationNormalizedLoaded, key: string, isNumberArr = false): WritableComputedRef<ReturnArrayType[]> => {
+export const makeComputedQueryArray = <ReturnArrayType extends string | number = string>(router: Router, route: RouteLocationNormalizedLoaded, key: string, isNumberArr = false): WritableComputedRef<ReturnArrayType[]> => {
   return computed({
     get(): Array<ReturnArrayType> {
       const paramData = Object.hasOwn(route.query, key) ? route.query[key] as string : undefined;

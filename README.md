@@ -97,8 +97,25 @@ paramText.value = ['1','2','3','4']
 </script>
 ```
 
+### Example 5 - Work with number arrays
+ *makeComputedQueryArray* function has also generic property, which you can use to type-cast resulting array. You should use string or number types here. If you decide to use number, please, also include fourth parameter with value <b>true</b>. This enables resulting values to be number, executing *parseInt* on each.
+
+```html
+<script setup lang="ts">
+import { useRoute, useRouter } from 'vue-router';
+import { makeComputedQueryArray } from '@antik-web/computed-route-param';
+
+const route = useRoute();
+const router = useRouter();
+const paramText = makeComputedQueryArray<number>(router, route, 'paramName', true);
+
+paramText.value = [1,2,3,4]
+
+</script>
+```
+
 ## Support
 - ES2022 - ESM
 
 ## Authors and acknowledgment
-Jakub Frankovic - Web developer ANTIK Telecom | [Send Mail](mailto:frankovic@antik.sk)
+Jakub Frankovic - Web developer ANTIK Telecom | [Send Mail](mailto:web@antik.sk)
