@@ -132,7 +132,7 @@ web@antik.sk
 [HERE](mailto:web@antik.sk) is quick link if you use mail app.
 
 ### Step 2
-Create `.npmrc` file in root directory of your project.
+Create `.npmrc` file in root directory of your project and add it to **.gitignore**. Never push tokens or other secret data to repository.
 
 ### Step 3
 
