@@ -3,6 +3,9 @@
 A facade for using computed property to set primitive (string) route param values.
 
 ## Installation
+
+See [below](#setup-npm-repo), how to configure .npmrc file to be able to access this package. When you complete this step, you can continue with below commands:
+
 **npm**:
 ```
 npm i @antik-web/computed-route-param
@@ -12,6 +15,8 @@ npm i @antik-web/computed-route-param
 ```
 pnpm add @antik-web/computed-route-param
 ```
+
+## Importing
 
 **ESM import**:
 ```
@@ -114,8 +119,52 @@ paramText.value = [1,2,3,4]
 </script>
 ```
 
+<div id="setup-npm-repo"></div>
+
+## NPM repository setup
+
+### Step 1 (skip if you have working access token)
+Request npm access token by sending an mail to
+
+```
+web@antik.sk
+```
+[HERE](mailto:web@antik.sk) is quick link if you use mail app.
+
+### Step 2
+Create `.npmrc` file in root directory of your project.
+
+### Step 3
+
+Add this content if you have token only for specific package:
+```
+@antik-web:registry=https://git.antik.sk/api/v4/projects/{PACKAGE_ID}/packages/npm/
+//git.antik.sk/api/v4/projects/{PACKAGE_ID}/packages/npm/:_authToken={AUTH_TOKEN}
+```
+
+**OR**
+
+Add this content if you have token for group:
+```
+@antik-web:registry=https://git.antik.sk/api/v4/groups/{GROUP_ID}/-/packages/npm/
+//git.antik.sk/api/v4/groups/{GROUP_ID}/-/packages/npm/:_authToken={AUTH_TOKEN}
+```
+
+<hr>
+After these 3 steps, you should be able to download NPM package from our private repositories.
+
 ## Support
 - ES2022 - ESM
+
+## For gitlab admins
+
+### Generating access tokens
+1. Go to the group or project
+2. Settings -> Access tokens
+3. Add new token
+4. Choose appropriate name containing person identifier so we know who has the token
+5. Check at least **REPORTER ROLE** and **read_api** scope
+6. Click 'Create project access token'
 
 ## Authors and acknowledgment
 Jakub Frankovic - Web developer ANTIK Telecom | [Send Mail](mailto:web@antik.sk)
