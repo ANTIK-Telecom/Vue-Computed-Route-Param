@@ -7,11 +7,13 @@ publish:
   image: node:latest
   stage: deploy
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_REF_NAME =~ /^v\d+\.\d+\.\d+.*$/
-      changes:
-        - package.json
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      # changes:
+      #   - package.json
   script:
     # If no .npmrc is included in the repo, generate a temporary one that is configured to publish to GitLab's NPM registry
+    - npm i
+    - npm run build
     - |
       if [[ ! -f .npmrc ]]; then
         echo 'No .npmrc found! Creating one now. Please review the following link for more information: https://docs.gitlab.com/ee/user/packages/npm_registry/index.html#project-level-npm-endpoint-1'
