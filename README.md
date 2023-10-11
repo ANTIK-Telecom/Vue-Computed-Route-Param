@@ -4,7 +4,7 @@ A facade for using computed property to set primitive (string) route param value
 
 ## Installation
 
-See [below](#setup-npm-repo), how to configure .npmrc file to be able to access this package. When you complete this step, you can continue with below commands:
+See [below](#npm-repository-setup), how to configure .npmrc file to be able to access this package. When you complete this step, you can continue with below commands:
 
 **npm**:
 ```
