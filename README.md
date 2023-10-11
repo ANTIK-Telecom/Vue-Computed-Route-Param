@@ -150,6 +150,8 @@ Add this content if you have token for group:
 //git.antik.sk/api/v4/groups/{GROUP_ID}/-/packages/npm/:_authToken={AUTH_TOKEN}
 ```
 
+If the wanted package does not start with @antik-web, change it accordingly.
+
 <hr>
 After these 3 steps, you should be able to download NPM package from our private repositories.
 
