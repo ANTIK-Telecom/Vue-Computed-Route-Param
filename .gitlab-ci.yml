@@ -40,7 +40,7 @@ publish:
     # If $SIGSTORE_ID_TOKEN is set this template will generate a provenance
     # document. For more information refer to the documentation: https://docs.gitlab.com/ee/ci/yaml/signing_examples/
     - |
-      if [[ "${NPM_PACKAGE_VERSION}" != "'${PACKAGE_JSON_VERSION}'" ]]; then
+      if [[ "${NPM_PACKAGE_VERSION}" != "${PACKAGE_JSON_VERSION}" ]]; then
         echo "Version ${NPM_PACKAGE_VERSION} set by provided TAG is not matching version ${PACKAGE_JSON_VERSION} in package.json, so no new version has been published."
         exit 1
       fi
