@@ -28,5 +28,9 @@
     "dist/index.js",
     "README.md",
     "package.json"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ANTIK-Telecom/vue-computed-route-param.git"
+  }
 }
